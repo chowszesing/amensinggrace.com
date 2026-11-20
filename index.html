@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amen Sing Grace | 心星療癒工作室</title>
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=Yy_XzbHAdtsBYdL7iiPVBdR2aSJdBgy9CwoTLICn9FDQ6ECqlugNiTUCwoUpfbvNCsbz05rdDbDxEtB5EXHMO8vEUYwom_2uxOU9ArWevgk4pa0gm279JyFawl1H7jkyHw7oUbjfAhQQOvjxtkxXvQz3Mnm_4QOcjT-1m5VkjpZDpI7EtAvZFsrhkaGI4XXi8U7D5cX6PGDKIy0yUcbh1TOwgRqGqZYx5paSL2PgjrCEAU30MIHG4ZGugYvtxDGW2q9UrFEcf4ia8CrM_V2IWg5QMqrpho0NRihClcBg_ocbrO7lcLKcb_wMQTcZLnLs" charset="UTF-8"></script><script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-cream: #F9F7F2;
+      --bg-card-beige: #EDE9E0;
+      --bg-yellow-band: #FBE9A6;
+      --text-primary: #4A3E36;
+      --text-secondary: #6E5F54;
+      --btn-brown: #6A533B;
+      --btn-brown-hover: #523F2C;
+    }
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background-color: var(--bg-cream);
+      color: var(--text-primary);
+      margin: 0;
+      padding: 0;
+    }
+    .font-script {
+      font-family: 'Alex Brush', cursive;
+    }
+    .font-serif-tc {
+      font-family: 'Noto Serif TC', serif;
+    }
+    /* 左側導覽列啟用狀態指示條 */
+    .nav-item.active {
+      background-color: #EDE9E0;
+      color: #4A3E36;
+      font-weight: 700;
+      border-right: 4px solid #6A533B;
+    }
+    /* 自訂捲軸樣式 */
+    aside::-webkit-scrollbar {
+      width: 4px;
+    }
+    aside::-webkit-scrollbar-thumb {
+      background-color: #DFD8CA;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-[#EDE9E0] flex flex-col lg:flex-row min-h-screen">
+
+  <!-- 手機與平板端頂部導覽列 (Mobile Top Header) -->
+  <header class="lg:hidden bg-white border-b border-[#EAE5DC] sticky top-0 z-50 px-5 py-3 flex justify-between items-center shadow-xs">
+    <a href="#home" class="flex items-center gap-2.5">
+      <svg class="w-10 h-6 text-[#8C7A65]" viewBox="0 0 110 62" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M44 6 L50 20 L65 22 L54 32 L57 47 L44 39 L31 47 L34 32 L23 22 L38 20 Z" fill="#FFFDF9"/>
+        <path d="M38 25 Q40 23 42 25" stroke-width="1.8"/>
+        <path d="M46 25 Q48 23 50 25" stroke-width="1.8"/>
+        <path d="M42 30 Q44 32.5 46 30" stroke-width="1.8"/>
+        <path d="M72 24 L75.5 31.5 L84 32.5 L77.8 38.2 L79.3 46.5 L72 42.3 L64.7 46.5 L66.2 38.2 L60 32.5 L68.5 31.5 Z" fill="#FFFDF9"/>
+      </svg>
+      <div>
+        <span class="font-script text-2xl leading-none text-[#8C7A65] block">AmenSing Grace</span>
+        <span class="text-[10px] tracking-[0.2em] text-[#8C7A65] block">心星療癒工作室</span>
+      </div>
+    </a>
+    <button id="mobile-menu-btn" aria-label="開啟選單" class="p-2 text-[#4A3E36] hover:bg-[#EDE9E0] rounded-lg transition-colors">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </header>
+
+  <!-- 手機端抽屜式側邊欄遮罩 -->
+  <div id="mobile-overlay" class="fixed inset-0 bg-black/30 z-40 hidden lg:hidden backdrop-blur-xs"></div>
+
+  <!-- 桌面端固定左側邊欄 (寬度 270px) -->
+  <aside id="sidebar" class="fixed lg:sticky top-0 left-0 z-50 h-screen w-[270px] shrink-0 bg-white border-r border-[#EAE5DC] flex flex-col justify-between overflow-y-auto transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out">
+    
+    <div>
+      <!-- 1. 品牌 Logo 區 -->
+      <div class="pt-8 pb-6 px-6 border-b border-[#F2EDE4] flex flex-col items-center text-center">
+        <a href="#home" class="flex flex-col items-center group">
+          <div class="relative flex items-center justify-center mb-1">
+            <!-- 手繪感大小雙星 SVG -->
+            <svg class="w-20 h-11 text-[#8C7A65] group-hover:scale-105 transition-transform" viewBox="0 0 110 62" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M44 6 L50 20 L65 22 L54 32 L57 47 L44 39 L31 47 L34 32 L23 22 L38 20 Z" fill="#FFFDF9"/>
+              <path d="M38 25 Q40 23 42 25" stroke-width="1.6"/>
+              <path d="M46 25 Q48 23 50 25" stroke-width="1.6"/>
+              <path d="M42 30 Q44 32.5 46 30" stroke-width="1.6"/>
+              <path d="M72 24 L75.5 31.5 L84 32.5 L77.8 38.2 L79.3 46.5 L72 42.3 L64.7 46.5 L66.2 38.2 L60 32.5 L68.5 31.5 Z" fill="#FFFDF9"/>
+              <circle cx="69.5" cy="35" r="0.8" fill="currentColor"/>
+              <circle cx="74.5" cy="35" r="0.8" fill="currentColor"/>
+              <path d="M70.5 38 Q72 39.5 73.5 38" stroke-width="1.4"/>
+              <line x1="84" y1="18" x2="89" y2="13" stroke-width="1.8"/>
+              <line x1="88" y1="23" x2="95" y2="21" stroke-width="1.8"/>
+              <line x1="88" y1="29" x2="94" y2="30" stroke-width="1.8"/>
+            </svg>
+          </div>
+          <span class="font-script text-[32px] leading-none text-[#8C7A65] tracking-wide -mt-1">AmenSing Grace</span>
+          <div class="flex items-center gap-1.5 mt-1.5">
+            <svg class="w-3.5 h-3.5 text-[#8C7A65]" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6">
+              <circle cx="10" cy="10" r="8"/>
+              <path d="M10 5.5 V14.5 M6.5 9 H13.5"/>
+            </svg>
+            <span class="text-[12px] tracking-[0.22em] text-[#8C7A65] font-medium">心星療癒工作室</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- 2. 左側主導覽選單 -->
+      <nav class="py-4 flex flex-col" aria-label="主導覽選單">
+        <a href="#home" class="nav-item active px-7 py-3.5 text-[15px] text-[#4A3E36] hover:bg-[#F9F7F2] transition-colors flex items-center justify-between border-b border-[#F7F4EE]">
+          <span>主頁</span>
+          <span class="text-xs text-[#A89A88]">›</span>
+        </a>
+        <a href="#about" class="nav-item px-7 py-3.5 text-[15px] text-[#4A3E36] hover:bg-[#F9F7F2] transition-colors flex items-center justify-between border-b border-[#F7F4EE]">
+          <span>我的簡介</span>
+          <span class="text-xs text-[#A89A88]">›</span>
+        </a>
+        <a href="#emotional" class="nav-item px-7 py-3.5 text-[15px] text-[#4A3E36] hover:bg-[#F9F7F2] transition-colors flex items-center justify-between border-b border-[#F7F4EE]">
+          <span>情緒輔導</span>
+          <span class="text-xs text-[#A89A88]">›</span>
+        </a>
+        <a href="#grief" class="nav-item px-7 py-3.5 text-[15px] text-[#4A3E36] hover:bg-[#F9F7F2] transition-colors flex items-center justify-between border-b border-[#F7F4EE]">
+          <span>哀傷輔導</span>
+          <span class="text-xs text-[#A89A88]">›</span>
+        </a>
+        <a href="#career" class="nav-item px-7 py-3.5 text-[15px] text-[#4A3E36] hover:bg-[#F9F7F2] transition-colors flex items-center justify-between border-b border-[#F7F4EE]">
+          <span>職涯輔導</span>
+          <span class="text-xs text-[#A89A88]">›</span>
+        </a>
+        <a href="#workshop" class="nav-item px-7 py-3.5 text-[15px] text-[#4A3E36] hover:bg-[#F9F7F2] transition-colors flex items-center justify-between border-b border-[#F7F4EE]">
+          <span>藝術心靈療愈工作坊</span>
+          <span class="text-xs text-[#A89A88]">›</span>
+        </a>
+        <a href="#contact" class="nav-item px-7 py-3.5 text-[15px] text-[#4A3E36] hover:bg-[#F9F7F2] transition-colors flex items-center justify-between">
+          <span>聯絡我們</span>
+          <span class="text-xs text-[#A89A88]">›</span>
+        </a>
+      </nav>
+    </div>
+
+    <!-- 3. 側邊欄底部快速聯絡與地址資訊區塊 -->
+    <div class="p-6 bg-[#F9F7F2] border-t border-[#EAE5DC] space-y-4">
+      <div class="space-y-2">
+        <p class="text-[11px] tracking-widest text-[#8C7A65] font-bold uppercase">預約及查詢</p>
+        <a href="https://wa.me/85244467367" target="_blank" rel="noopener" class="flex items-center gap-2 text-[13px] font-bold text-[#4A3E36] hover:text-[#6A533B] transition-colors">
+          <span class="w-2 h-2 rounded-full bg-[#6A533B] shrink-0"></span>
+          <span>WhatsApp: +852 4446 7367</span>
+        </a>
+        <p class="text-[12px] text-[#6E5F54] leading-relaxed pl-4">
+          香港上環德輔道中300號<br>華傑商業中心12樓B室
+        </p>
+      </div>
+
+      <div class="flex items-center gap-3 pt-1">
+        <a href="https://www.instagram.com/amensing_grace?hvrq=MTI4aXAwb2FmZXp6aw==" target="_blank" rel="noopener" aria-label="Instagram" class="w-9 h-9 rounded-full bg-white border border-[#E0D9CC] flex items-center justify-center text-[#6E5F54] hover:bg-[#6A533B] hover:text-white transition-colors">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2.5" y="2.5" width="19" height="19" rx="5"></rect>
+            <circle cx="12" cy="12" r="4"></circle>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
+          </svg>
+        </a>
+        <a href="https://wa.me/85244467367" target="_blank" rel="noopener" aria-label="WhatsApp" class="w-9 h-9 rounded-full bg-white border border-[#E0D9CC] flex items-center justify-center text-[#6E5F54] hover:bg-[#6A533B] hover:text-white transition-colors">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- 右側主內容流動區 (Main Content Area) -->
+  <main class="flex-1 min-w-0 bg-[#F9F7F2]">
+
+    <!-- 區塊 1：主頁 (#home) -->
+    <section id="home" class="relative w-full">
+      <div class="relative w-full h-[360px] sm:h-[440px] xl:h-[520px] overflow-hidden">
+        <img src="https://drive.google.com/thumbnail?id=1upykj2KGVuUyopxD3TMDwkXcb8o6wtYK&sz=w2000" onerror="this.src='https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&q=80&w=2000'" alt="心星療癒工作室空間" class="w-full h-full object-cover object-center">
+      </div>
+
+      <!-- 疊加米色文字卡片 -->
+      <div class="max-w-[1040px] mx-auto px-6 md:px-12 relative">
+        <div class="bg-[#EDE9E0]/95 px-8 py-7 md:px-11 md:py-9 max-w-[500px] ml-auto -mt-20 md:-mt-36 relative z-10 shadow-sm">
+          <p class="text-[19px] md:text-[22px] font-medium text-[#6A5A4B] tracking-wider mb-3">
+            與你一起……
+          </p>
+          <h1 class="text-[23px] md:text-[28px] font-bold text-[#4A3E36] leading-[1.45] tracking-wide">
+            找回失落的自己，看見<br>
+            <span class="block text-center md:text-right md:pr-6 mt-1">自己的美好。</span>
+          </h1>
+        </div>
+      </div>
+
+      <!-- 淺鵝黃色分隔帶 -->
+      <div class="w-full h-8 md:h-10 bg-[#FBE9A6] mt-8 md:mt-10"></div>
+    </section>
+
+    <!-- 區塊 2：我的簡介 (#about) -->
+    <section id="about" class="py-16 md:py-22 border-b border-[#EAE5DC]">
+      <div class="max-w-[1040px] mx-auto px-6 md:px-12">
+        <div class="mb-8">
+          <span class="text-[13px] font-bold tracking-[0.2em] text-[#8C7A65] uppercase block mb-1">ABOUT ME</span>
+          <h2 class="text-[28px] md:text-[34px] font-bold text-[#4A3E36] tracking-wide">我的簡介</h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div class="lg:col-span-7 space-y-7 text-[16px] md:text-[17px] leading-[1.85] text-[#4A3E36] tracking-wide">
+            <p>
+              活在「忙碌」劇本的裡，每天扮演著不同的角色，努力去滿足各種的期待，被繁忙與疲憊推著前進。別人的期望被滿足了，卻在無盡的喧囂中，把自己弄丟了。
+            </p>
+
+            <div class="space-y-1 font-medium border-l-4 border-[#FBE9A6] pl-5 py-1">
+              <p>這些期待從何而來？</p>
+              <p>到底是誰來定義我們呢？</p>
+            </div>
+
+            <p>
+              讓我們在這個安靜的空間內，一起找回失落的自己，聆聽內心的故事，看見自己的美好。
+            </p>
+
+            <div class="pt-2">
+              <a href="#contact" class="inline-block px-7 py-2.5 bg-[#6A533B] text-white text-[14px] font-medium rounded-full hover:bg-[#523F2C] transition-colors">
+                預約空間對話
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 flex justify-center lg:justify-end">
+            <div class="w-full max-w-[360px] overflow-hidden shadow-sm bg-white">
+              <img src="https://drive.google.com/thumbnail?id=13If578PXhWuS2BUNpVDrfL4MdSbCMRyv&sz=w1000" onerror="this.src='https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=800'" alt="安靜空間內的溫暖燈光" class="w-full h-[360px] md:h-[410px] object-cover">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 淺鵝黃色分隔帶 -->
+    <div class="w-full h-7 md:h-9 bg-[#FBE9A6]"></div>
+
+    <!-- 區塊 3：個人輔導總覽與三大服務分區 (#emotional / #grief / #career) -->
+    <section class="py-16 md:py-22 bg-[#F9F7F2]">
+      <div class="max-w-[1040px] mx-auto px-6 md:px-12 space-y-16">
+        
+        <!-- 輔導引言與雙椅空間照 -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div class="lg:col-span-6 space-y-5">
+            <div>
+              <p class="text-[14px] font-bold text-[#8C7A65] tracking-wider mb-1">個人輔導服務</p>
+              <h2 class="text-[26px] md:text-[32px] font-bold text-[#4A3E36] leading-snug tracking-wide">
+                給自己一段專屬的整理時間
+              </h2>
+            </div>
+
+            <p class="text-[16px] leading-[1.8] text-[#4A3E36]">
+              房間太久沒有整理會混亂，內心亦然。當積壓的期待、壓力與情緒太多，人就會開始覺得悶悶不樂、提不起勁。若你：
+            </p>
+
+            <ul class="space-y-2 text-[16px] text-[#4A3E36] pl-5 list-disc marker:text-[#6A533B]">
+              <li>總是覺得心累，卻說不出具體原因</li>
+              <li>在關係或工作裡陷入重複的內耗</li>
+              <li>情緒容易起伏不安</li>
+            </ul>
+
+            <p class="text-[16px] leading-[1.8] text-[#4A3E36]">
+              在這個安靜的空間，讓我們一起聆聽內心的聲音，釐清情緒，找到能讓你舒服繼續前行的方向。
+            </p>
+          </div>
+
+          <div class="lg:col-span-6">
+            <div class="w-full overflow-hidden shadow-sm bg-white">
+              <img src="https://drive.google.com/thumbnail?id=1V9PF26y7TRN1fEp_SFrUIZLbrS5DqDON&sz=w1200" onerror="this.src='https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&q=80&w=900'" alt="個人輔導談話空間" class="w-full h-[340px] md:h-[400px] object-cover">
+            </div>
+          </div>
+        </div>
+
+        <!-- 三大輔導服務獨立區塊 -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+          
+          <!-- 情緒輔導 (#emotional) -->
+          <div id="emotional" class="scroll-mt-20 bg-white p-7 border border-[#EAE5DC] shadow-2xs flex flex-col justify-between space-y-6">
+            <div class="space-y-3">
+              <span class="inline-block px-3 py-1 bg-[#EDE9E0] text-[#6A533B] text-xs font-bold tracking-wider rounded-full">01 · EMOTIONAL</span>
+              <h3 class="text-[22px] font-bold text-[#4A3E36]">情緒輔導</h3>
+              <p class="text-[15px] leading-[1.75] text-[#6E5F54]">
+                陪伴你覺察日常積壓的焦慮、委屈與無力感。在安全不被批判的對話空間裡，學習接納真實情緒，釋放內在緊繃。
+              </p>
+            </div>
+            <a href="https://wa.me/85244467367?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E6%9F%A5%E8%A9%A2%E6%83%85%E7%B7%92%E8%BC%94%E5%B0%8E%E6%9C%8D%E5%8B%99" target="_blank" rel="noopener" class="w-full py-2.5 px-4 bg-[#6A533B] text-white text-[14px] font-medium rounded-full text-center hover:bg-[#523F2C] transition-colors">
+              查詢情緒輔導
+            </a>
+          </div>
+
+          <!-- 哀傷輔導 (#grief) -->
+          <div id="grief" class="scroll-mt-20 bg-white p-7 border border-[#EAE5DC] shadow-2xs flex flex-col justify-between space-y-6">
+            <div class="space-y-3">
+              <span class="inline-block px-3 py-1 bg-[#EDE9E0] text-[#6A533B] text-xs font-bold tracking-wider rounded-full">02 · GRIEF</span>
+              <h3 class="text-[22px] font-bold text-[#4A3E36]">哀傷輔導</h3>
+              <p class="text-[15px] leading-[1.75] text-[#6E5F54]">
+                面對失落、分離或生命重要轉折時，溫柔承接你的思念與悲傷。不急於要求「快點好起來」，而是陪你慢慢走過低谷。
+              </p>
+            </div>
+            <a href="https://wa.me/85244467367?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E6%9F%A5%E8%A9%A2%E5%93%80%E5%82%B7%E8%BC%94%E5%B0%8E%E6%9C%8D%E5%8B%99" target="_blank" rel="noopener" class="w-full py-2.5 px-4 bg-white text-[#6A533B] border border-[#6A533B] text-[14px] font-medium rounded-full text-center hover:bg-[#EDE9E0] transition-colors">
+              查詢哀傷輔導
+            </a>
+          </div>
+
+          <!-- 職涯輔導 (#career) -->
+          <div id="career" class="scroll-mt-20 bg-white p-7 border border-[#EAE5DC] shadow-2xs flex flex-col justify-between space-y-6">
+            <div class="space-y-3">
+              <span class="inline-block px-3 py-1 bg-[#EDE9E0] text-[#6A533B] text-xs font-bold tracking-wider rounded-full">03 · CAREER</span>
+              <h3 class="text-[22px] font-bold text-[#4A3E36]">職涯輔導</h3>
+              <p class="text-[15px] leading-[1.75] text-[#6E5F54]">
+                當工作陷入倦怠或面臨方向迷惘，協助你重新梳理個人價值觀、天賦優勢與內在渴望，找到貼近本心的職涯步調。
+              </p>
+            </div>
+            <a href="https://wa.me/85244467367?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E6%9F%A5%E8%A9%A2%E8%81%B7%E6%B6%AF%E8%BC%94%E5%B0%8E%E6%9C%8D%E5%8B%99" target="_blank" rel="noopener" class="w-full py-2.5 px-4 bg-[#6A533B] text-white text-[14px] font-medium rounded-full text-center hover:bg-[#523F2C] transition-colors">
+              查詢職涯輔導
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 淺鵝黃色分隔帶 -->
+    <div class="w-full h-7 md:h-9 bg-[#FBE9A6]"></div>
+
+    <!-- 區塊 4：藝術心靈療愈工作坊 (#workshop) - 包含過往所有活動照片展示 -->
+    <section id="workshop" class="scroll-mt-16 py-16 md:py-22 bg-[#F9F7F2]">
+      <div class="max-w-[1040px] mx-auto px-6 md:px-12">
+        <div class="mb-2">
+          <span class="text-[13px] font-bold tracking-[0.2em] text-[#8C7A65] uppercase">ART & NARRATIVE WORKSHOP</span>
+        </div>
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
+          <h2 class="text-[30px] md:text-[38px] font-bold text-[#4A3E36] tracking-wider shrink-0">
+            藝術心靈療愈工作坊
+          </h2>
+          <p class="text-[17px] md:text-[19px] text-[#4A3E36] leading-[1.6] max-w-[500px]">
+            陪伴你……藉由藝術與敘事引領自我覺察，聆聽自己的心聲，找回內在的力量。
+          </p>
+        </div>
+
+        <!-- 課程核心特色橫幅 -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 mb-12">
+          <div class="overflow-hidden aspect-[4/3] bg-white shadow-sm">
+            <img src="https://drive.google.com/thumbnail?id=136tkuH4tknQ3gfSWVTscvlzLwsq_Ey5a&sz=w1000" alt="和諧粉彩與禪繞畫作品展示" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="overflow-hidden aspect-[4/3] bg-white shadow-sm">
+            <img src="https://drive.google.com/thumbnail?id=197orCkbN3L9alj9ymbipCHEP1XLHSqv2&sz=w1000" alt="工作坊團體創作體驗" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="overflow-hidden aspect-[4/3] bg-white shadow-sm">
+            <img src="https://drive.google.com/thumbnail?id=1QqUOLpLv4VsCehuLvPF0XLnAztoXzt0j&sz=w1000" alt="自由繪畫與自我覺察" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+          </div>
+        </div>
+
+        <!-- 過往活動精彩回顧相簿 (完整收錄 Google Drive「藝術心靈療愈工作坊」資料夾內全部 9 張照片) -->
+        <div class="pt-4 border-t border-[#EAE5DC]">
+          <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-6">
+            <div>
+              <h3 class="text-[22px] md:text-[25px] font-bold text-[#4A3E36]">過往活動精彩回顧</h3>
+              <p class="text-[14px] text-[#6E5F54] mt-1">記錄每一次靜心創作、非暴力溝通與自我探索的溫暖片刻（點擊圖片可放大瀏覽）</p>
+            </div>
+            <span class="text-xs font-medium text-[#8C7A65] bg-[#EDE9E0] px-3 py-1 rounded-full self-start sm:self-auto">共 9 張活動紀實</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-5 mb-10">
+          <div onclick="openLightbox('https://drive.google.com/thumbnail?id=1FZ9iWxoYoClwASVCnVMJY_ovkTw_PVnf&sz=w1600', '藝術心靈療愈工作坊活動紀錄 1')" class="group relative overflow-hidden aspect-[4/3] bg-white shadow-sm border border-[#EAE5DC] cursor-pointer">
+            <img src="https://drive.google.com/thumbnail?id=1FZ9iWxoYoClwASVCnVMJY_ovkTw_PVnf&sz=w1000" loading="lazy" alt="藝術心靈療愈工作坊活動紀錄 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-[#4A3E36]/0 group-hover:bg-[#4A3E36]/20 transition-colors flex items-end p-3">
+              <span class="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 text-[#4A3E36] text-xs px-2.5 py-1 rounded-full shadow-xs">點擊放大檢視</span>
+            </div>
+          </div>
+          <div onclick="openLightbox('https://drive.google.com/thumbnail?id=1hGZ_Es6LPpFbY9mWq1RIRWvP-woHTgJg&sz=w1600', '非暴力溝通與自我覺察分享')" class="group relative overflow-hidden aspect-[4/3] bg-white shadow-sm border border-[#EAE5DC] cursor-pointer">
+            <img src="https://drive.google.com/thumbnail?id=1hGZ_Es6LPpFbY9mWq1RIRWvP-woHTgJg&sz=w1000" loading="lazy" alt="非暴力溝通與自我覺察分享" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-[#4A3E36]/0 group-hover:bg-[#4A3E36]/20 transition-colors flex items-end p-3">
+              <span class="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 text-[#4A3E36] text-xs px-2.5 py-1 rounded-full shadow-xs">點擊放大檢視</span>
+            </div>
+          </div>
+          <div onclick="openLightbox('https://drive.google.com/thumbnail?id=1Jrrgju-AbX71C09kaGjhduDRgs4qSyxM&sz=w1600', '藝術心靈療愈工作坊活動紀錄 2')" class="group relative overflow-hidden aspect-[4/3] bg-white shadow-sm border border-[#EAE5DC] cursor-pointer">
+            <img src="https://drive.google.com/thumbnail?id=1Jrrgju-AbX71C09kaGjhduDRgs4qSyxM&sz=w1000" loading="lazy" alt="藝術心靈療愈工作坊活動紀錄 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-[#4A3E36]/0 group-hover:bg-[#4A3E36]/20 transition-colors flex items-end p-3">
+              <span class="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 text-[#4A3E36] text-xs px-2.5 py-1 rounded-full shadow-xs">點擊放大檢視</span>
+            </div>
+          </div>
+          <div onclick="openLightbox('https://drive.google.com/thumbnail?id=16V5kCbWGZG_MC9fDsN7tot7nquYw7t6u&sz=w1600', '藝術心靈療愈工作坊活動紀錄 3')" class="group relative overflow-hidden aspect-[4/3] bg-white shadow-sm border border-[#EAE5DC] cursor-pointer">
+            <img src="https://drive.google.com/thumbnail?id=16V5kCbWGZG_MC9fDsN7tot7nquYw7t6u&sz=w1000" loading="lazy" alt="藝術心靈療愈工作坊活動紀錄 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-[#4A3E36]/0 group-hover:bg-[#4A3E36]/20 transition-colors flex items-end p-3">
+              <span class="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 text-[#4A3E36] text-xs px-2.5 py-1 rounded-full shadow-xs">點擊放大檢視</span>
+            </div>
+          </div>
+          <div onclick="openLightbox('https://drive.google.com/thumbnail?id=1fliErGoNv4mDd4GHQgdBqfASu9nvCcZ3&sz=w1600', '禪繞畫核心哲學與靜心練習')" class="group relative overflow-hidden aspect-[4/3] bg-white shadow-sm border border-[#EAE5DC] cursor-pointer">
+            <img src="https://drive.google.com/thumbnail?id=1fliErGoNv4mDd4GHQgdBqfASu9nvCcZ3&sz=w1000" loading="lazy" alt="禪繞畫核心哲學與靜心練習" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-[#4A3E36]/0 group-hover:bg-[#4A3E36]/20 transition-colors flex items-end p-3">
+              <span class="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 text-[#4A3E36] text-xs px-2.5 py-1 rounded-full shadow-xs">點擊放大檢視</span>
+            </div>
+          </div>
+          <div onclick="openLightbox('https://drive.google.com/thumbnail?id=1W1i-Z8SGV-LEMeiLtc5CBdp1LqevL-X1&sz=w1600', '工作坊創作互動時刻')" class="group relative overflow-hidden aspect-[4/3] bg-white shadow-sm border border-[#EAE5DC] cursor-pointer">
+            <img src="https://drive.google.com/thumbnail?id=1W1i-Z8SGV-LEMeiLtc5CBdp1LqevL-X1&sz=w1000" loading="lazy" alt="工作坊創作互動時刻" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-[#4A3E36]/0 group-hover:bg-[#4A3E36]/20 transition-colors flex items-end p-3">
+              <span class="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 text-[#4A3E36] text-xs px-2.5 py-1 rounded-full shadow-xs">點擊放大檢視</span>
+            </div>
+          </div>
+          <div onclick="openLightbox('https://drive.google.com/thumbnail?id=1qNpnwQxtf8Vlh-Zv56g430VInN-GpN1I&sz=w1600', '學員專注繪畫與分享')" class="group relative overflow-hidden aspect-[4/3] bg-white shadow-sm border border-[#EAE5DC] cursor-pointer">
+            <img src="https://drive.google.com/thumbnail?id=1qNpnwQxtf8Vlh-Zv56g430VInN-GpN1I&sz=w1000" loading="lazy" alt="學員專注繪畫與分享" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-[#4A3E36]/0 group-hover:bg-[#4A3E36]/20 transition-colors flex items-end p-3">
+              <span class="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 text-[#4A3E36] text-xs px-2.5 py-1 rounded-full shadow-xs">點擊放大檢視</span>
+            </div>
+          </div>
+          <div onclick="openLightbox('https://drive.google.com/thumbnail?id=1eiw5bs1ucuiKBAg3rmT4I_70xEipRSGB&sz=w1600', '藝術心靈療愈工作坊花絮')" class="group relative overflow-hidden aspect-[4/3] bg-white shadow-sm border border-[#EAE5DC] cursor-pointer">
+            <img src="https://drive.google.com/thumbnail?id=1eiw5bs1ucuiKBAg3rmT4I_70xEipRSGB&sz=w1000" loading="lazy" alt="藝術心靈療愈工作坊花絮" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-[#4A3E36]/0 group-hover:bg-[#4A3E36]/20 transition-colors flex items-end p-3">
+              <span class="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 text-[#4A3E36] text-xs px-2.5 py-1 rounded-full shadow-xs">點擊放大檢視</span>
+            </div>
+          </div>
+          <div onclick="openLightbox('https://drive.google.com/thumbnail?id=1qkt4xgHNz1f9jEJOhmpYyqugMPo_ugbp&sz=w1600', '心靈療癒創作作品與交流')" class="group relative overflow-hidden aspect-[4/3] bg-white shadow-sm border border-[#EAE5DC] cursor-pointer">
+            <img src="https://drive.google.com/thumbnail?id=1qkt4xgHNz1f9jEJOhmpYyqugMPo_ugbp&sz=w1000" loading="lazy" alt="心靈療癒創作作品與交流" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-[#4A3E36]/0 group-hover:bg-[#4A3E36]/20 transition-colors flex items-end p-3">
+              <span class="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 text-[#4A3E36] text-xs px-2.5 py-1 rounded-full shadow-xs">點擊放大檢視</span>
+            </div>
+          </div>
+          </div>
+        </div>
+
+        <!-- 課程查詢橫幅 -->
+        <div class="bg-[#EDE9E0]/75 p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div class="space-y-1.5 max-w-2xl">
+            <h3 class="text-[20px] font-bold text-[#4A3E36]">團體工作坊及機構包班查詢</h3>
+            <p class="text-[14px] text-[#6E5F54] leading-relaxed">
+              提供和諧粉彩、禪繞畫、非暴力溝通及藝術敘事體驗工作坊，適合個人報名、學校及企業機構減壓活動。
+            </p>
+          </div>
+          <a href="https://wa.me/85244467367?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E6%9F%A5%E8%A9%A2%E8%97%9D%E8%A1%93%E5%BF%83%E9%9D%88%E7%99%82%E6%84%88%E5%B7%A5%E4%BD%9C%E5%9D%8A" target="_blank" rel="noopener" class="shrink-0 px-6 py-2.5 bg-[#6A533B] text-white text-[14px] font-medium rounded-full text-center hover:bg-[#523F2C] transition-colors">
+            報名及查詢時間表
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 區塊 5：聯絡我們 (#contact) - 已加入上環辦公室地址 -->
+    <section id="contact" class="scroll-mt-16 py-16 md:py-20 bg-[#EDE9E0] border-t border-[#E0D9CC]">
+      <div class="max-w-[1040px] mx-auto px-6 md:px-12">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+          <div class="md:col-span-7 space-y-5">
+            <div>
+              <span class="text-[12px] font-bold tracking-[0.2em] text-[#8C7A65] uppercase">CONTACT US</span>
+              <h2 class="text-[28px] md:text-[32px] font-bold text-[#4A3E36] mt-1">聯絡我們</h2>
+            </div>
+
+            <p class="text-[15px] md:text-[16px] text-[#6E5F54] leading-relaxed max-w-lg">
+              歡迎透過 WhatsApp 或 Instagram 與我們聯繫，預約一對一個人輔導或查詢最新工作坊日期。
+            </p>
+
+            <!-- 辦公室地址與聯絡資訊卡片 -->
+            <div class="bg-[#F9F7F2] p-5 border border-[#DCD4C6] space-y-3 max-w-lg">
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#6A533B] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                <div>
+                  <p class="text-[13px] font-bold text-[#8C7A65] tracking-wider">辦公室地址</p>
+                  <p class="text-[15px] font-medium text-[#4A3E36] mt-0.5">
+                    香港上環德輔道中300號華傑商業中心12樓B室
+                  </p>
+                  <a href="https://maps.google.com/?q=香港上環德輔道中300號華傑商業中心" target="_blank" rel="noopener" class="inline-block text-[12px] text-[#6A533B] underline hover:text-[#4A3E36] mt-1">
+                    在 Google 地圖查看路線 →
+                  </a>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3 pt-2 border-t border-[#EAE5DC]">
+                <svg class="w-5 h-5 text-[#6A533B] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                </svg>
+                <div>
+                  <p class="text-[13px] font-bold text-[#8C7A65] tracking-wider">預約電話 / WhatsApp</p>
+                  <p class="text-[15px] font-medium text-[#4A3E36] mt-0.5">+852 4446 7367</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="md:col-span-5 flex flex-col justify-center md:pt-12 gap-3.5">
+            <a href="https://wa.me/85244467367" target="_blank" rel="noopener" class="px-6 py-3.5 bg-[#6A533B] text-white text-[15px] font-medium rounded-full text-center hover:bg-[#523F2C] transition-colors shadow-xs">
+              WhatsApp 查詢：+852 4446 7367
+            </a>
+            <a href="https://www.instagram.com/amensing_grace?hvrq=MTI4aXAwb2FmZXp6aw==" target="_blank" rel="noopener" class="px-6 py-3.5 bg-white text-[#6A533B] border border-[#6A533B] text-[15px] font-medium rounded-full text-center hover:bg-[#F9F7F2] transition-colors">
+              追蹤 Instagram (@amensing_grace)
+            </a>
+          </div>
+        </div>
+
+        <div class="mt-12 pt-6 border-t border-[#DCD4C6] flex flex-col sm:flex-row justify-between items-center gap-3 text-[13px] text-[#6E5F54]">
+          <div class="flex items-center gap-2">
+            <span class="font-script text-xl text-[#6A533B]">AmenSing Grace</span>
+            <span>｜ 心星療癒工作室 © 2026</span>
+          </div>
+          <span>香港上環德輔道中300號華傑商業中心12樓B室</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 圖片燈箱預覽彈窗 (Lightbox Modal) -->
+  <div id="lightbox" onclick="closeLightbox()" class="fixed inset-0 bg-black/80 z-50 hidden items-center justify-center p-4 backdrop-blur-xs">
+    <div onclick="event.stopPropagation()" class="relative max-w-4xl w-full bg-white p-2 shadow-2xl">
+      <button onclick="closeLightbox()" aria-label="關閉預覽" class="absolute -top-10 right-0 text-white hover:text-[#FBE9A6] text-sm flex items-center gap-1 cursor-pointer">
+        <span>關閉預覽</span>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+      <img id="lightbox-img" src="" alt="" class="w-full max-h-[80vh] object-contain bg-[#F9F7F2]">
+      <p id="lightbox-caption" class="text-center text-sm text-[#4A3E36] py-2.5 font-medium"></p>
+    </div>
+  </div>
+
+  <!-- 互動腳本：手機端抽屜選單控制 + 滾動自動高亮左側導覽項目 + 圖片燈箱 -->
+  <script>
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('mobile-overlay');
+    const navLinks = document.querySelectorAll('.nav-item');
+
+    function toggleMenu() {
+      sidebar.classList.toggle('-translate-x-full');
+      overlay.classList.toggle('hidden');
+    }
+
+    menuBtn.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.forEach(item => item.classList.remove('active'));
+        link.classList.add('active');
+        if (window.innerWidth < 1024) {
+          sidebar.classList.add('-translate-x-full');
+          overlay.classList.add('hidden');
+        }
+      });
+    });
+
+    const sectionIds = ['home', 'about', 'emotional', 'grief', 'career', 'workshop', 'contact'];
+    window.addEventListener('scroll', () => {
+      let current = 'home';
+      const scrollPos = window.scrollY + 180;
+      sectionIds.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= scrollPos) {
+          current = id;
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // 燈箱檢視功能
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+
+    function openLightbox(src, caption) {
+      lightboxImg.src = src;
+      lightboxCaption.textContent = caption;
+      lightbox.classList.remove('hidden');
+      lightbox.classList.add('flex');
+    }
+
+    function closeLightbox() {
+      lightbox.classList.add('hidden');
+      lightbox.classList.remove('flex');
+      lightboxImg.src = '';
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+
+</body>
+</html>
